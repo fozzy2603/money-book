@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Provider from './context/GlobalProvider';
+import Balance from './components/Balance';
+import History from './components/History';
+import AddForm from './components/AddForm';
+import IncomeExpense from './components/IncomeExpense';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Provider>
+            <div className="container wrapper mt-5 mb-5">
+                <div className="row mb-4">
+                    <div className="col-12 col-sm-5 mb-3 mb-sm-0">
+                        <Balance />
+                    </div>
+                    <div className="col-12 col-sm-7">
+                        <IncomeExpense />
+                    </div>
+                </div>
+                <History />
+                <AddForm />
+            </div>
+        </Provider>
+    );
 }
 
 export default App;
